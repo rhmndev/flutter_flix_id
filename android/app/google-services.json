@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "309963258705",
+    "project_id": "flix-id-course-15abb",
+    "storage_bucket": "flix-id-course-15abb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:309963258705:android:31d1d1fc278d4cb870b170",
+        "android_client_info": {
+          "package_name": "com.rahmandev.flutter_flix_id"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrdU_59z2_AgQZjKi05YB-1QMFB4aBij4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
