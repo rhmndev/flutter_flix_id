@@ -3,23 +3,23 @@ import 'package:flutter_flix_id/data/firebase/firebase_authentication.dart';
 import 'package:flutter_flix_id/data/firebase/firebase_user_repository.dart';
 import 'package:flutter_flix_id/domain/usecases/login/login.dart';
 import 'package:flutter_flix_id/presentation/pages/main_page/main_page.dart';
+import 'package:flutter_flix_id/presentation/providers/usecases/login_provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends ConsumerWidget {
   const LoginPage({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Login'),
       ),
       body: Center(
         child: ElevatedButton(onPressed: () {
-          Login login = Login(
-            authentication: FirebaseAuthentication(),
-            userRepository: FirebaseUserRepository());
+          Login login = ref.watch(loginProvider);
 
-            login(LoginParams(email: 'adisazara@gmail.com', password: '12345678'))
+            login(LoginParams(email: 'rahmannurhadi71@gmail.com', password: '12345678'))
             .then((result) {
               if (result.isSuccess) {
                 Navigator.of(context).push(MaterialPageRoute(builder: (context) => MainPage(user: result.resultValue!),

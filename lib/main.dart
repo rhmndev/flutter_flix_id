@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_flix_id/firebase_options.dart';
 import 'package:flutter_flix_id/presentation/pages/login_page/login_page.dart';
 import 'package:firebase_app_check/firebase_app_check.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -12,12 +13,10 @@ void main() async {
   );
 
   await FirebaseAppCheck.instance.activate(
-    
-    // webProvider: ReCaptchaV3Provider('recaptcha-v3-site-key'),
     androidProvider: AndroidProvider.debug,
   );
 
-  runApp(const MainApp());
+  runApp(ProviderScope(child: const MainApp()));
 }
 
 class MainApp extends StatelessWidget {
