@@ -53,8 +53,8 @@ lib/
 
 1. Clone repositori:
    ```bash
-   git clone https://github.com/username/flix-id.git
-   cd flix-id
+   git clone https://github.com/rhmndev/flutter_flix_id
+   cd flutter_flix_id
    ```
 
 2. Install dependency:
