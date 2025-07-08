@@ -1,6 +1,6 @@
 # 🎬 Flix ID – Aplikasi Simulasi Pemesanan Tiket Bioskop
 
-Flix ID adalah aplikasi mobile yang dikembangkan menggunakan Flutter, bertujuan untuk mensimulasikan proses pencarian film dan pemesanan tiket bioskop. Aplikasi ini menggunakan arsitektur bersih (Clean Architecture) dan berbagai teknologi modern untuk memberikan pengalaman pengguna yang responsif dan terstruktur. dan sudah menerapkan konsep Seperation of Concerns.
+Flix ID adalah aplikasi mobile yang dikembangkan menggunakan Flutter, bertujuan untuk mensimulasikan proses pencarian film dan pemesanan tiket bioskop. Aplikasi ini menggunakan arsitektur bersih (Clean Architecture) dan berbagai teknologi modern untuk memberikan pengalaman pengguna yang responsif dan terstruktur serta sudah menerapkan konsep Seperation of Concerns yang mudah untuk dibuat, dikembangkan, dan juga dipelihara.
 
 ## 🚀 Fitur Utama
 
@@ -16,12 +16,11 @@ Flix ID adalah aplikasi mobile yang dikembangkan menggunakan Flutter, bertujuan 
 | Kategori           | Teknologi/Tools                             |
 |--------------------|---------------------------------------------|
 | **Frontend**       | Flutter, Dart                               |
-| **State Management** | Riverpod, Freezed                        |
+| **State Management** | Riverpod, Freezed                         |
 | **Routing**        | GoRouter                                    |
 | **API**            | TMDB API, HTTP Package                      |
-| **Backend/Cloud**  | Firebase Authentication, Firestore, Storage |
-| **Local Storage**  | Shared Preferences                          |
-| **UI Support**     | Responsive Framework, Lottie                |
+| **Backend/Cloud**  | Firebase Authentication, Firestore, Storage |                       |
+| **UI Support**     | Responsive Framework,                       |
 | **Architecture**   | Clean Architecture                          |
 
 ## 📁 Struktur Proyek
