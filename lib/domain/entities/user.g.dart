@@ -11,7 +11,7 @@ _User _$UserFromJson(Map<String, dynamic> json) => _User(
   email: json['email'] as String,
   name: json['name'] as String,
   photoUrl: json['photoUrl'] as String?,
-  balance: (json['balance'] as num?)?.toInt() ?? 0,
+  balance: json['balance'] == null ? 0 : _balanceFromJson(json['balance']),
 );
 
 Map<String, dynamic> _$UserToJson(_User instance) => <String, dynamic>{

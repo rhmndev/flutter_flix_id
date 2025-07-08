@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$User {
 
- String get uid; String get email; String get name; String? get photoUrl; int get balance;
+ String get uid; String get email; String get name; String? get photoUrl;@JsonKey(fromJson: _balanceFromJson) int get balance;
 /// Create a copy of User
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -49,7 +49,7 @@ abstract mixin class $UserCopyWith<$Res>  {
   factory $UserCopyWith(User value, $Res Function(User) _then) = _$UserCopyWithImpl;
 @useResult
 $Res call({
- String uid, String email, String name, String? photoUrl, int balance
+ String uid, String email, String name, String? photoUrl,@JsonKey(fromJson: _balanceFromJson) int balance
 });
 
 
@@ -84,14 +84,14 @@ as int,
 @JsonSerializable()
 
 class _User implements User {
-  const _User({required this.uid, required this.email, required this.name, this.photoUrl, this.balance = 0});
+  const _User({required this.uid, required this.email, required this.name, this.photoUrl, @JsonKey(fromJson: _balanceFromJson) this.balance = 0});
   factory _User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
 
 @override final  String uid;
 @override final  String email;
 @override final  String name;
 @override final  String? photoUrl;
-@override@JsonKey() final  int balance;
+@override@JsonKey(fromJson: _balanceFromJson) final  int balance;
 
 /// Create a copy of User
 /// with the given fields replaced by the non-null parameter values.
@@ -126,7 +126,7 @@ abstract mixin class _$UserCopyWith<$Res> implements $UserCopyWith<$Res> {
   factory _$UserCopyWith(_User value, $Res Function(_User) _then) = __$UserCopyWithImpl;
 @override @useResult
 $Res call({
- String uid, String email, String name, String? photoUrl, int balance
+ String uid, String email, String name, String? photoUrl,@JsonKey(fromJson: _balanceFromJson) int balance
 });
 
 

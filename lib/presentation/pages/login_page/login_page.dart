@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_flix_id/data/dummies/dummy_authentication.dart';
-import 'package:flutter_flix_id/data/dummies/dummy_user_repository.dart';
+import 'package:flutter_flix_id/data/firebase/firebase_authentication.dart';
+import 'package:flutter_flix_id/data/firebase/firebase_user_repository.dart';
 import 'package:flutter_flix_id/domain/usecases/login/login.dart';
 import 'package:flutter_flix_id/presentation/pages/main_page/main_page.dart';
 
@@ -16,14 +16,16 @@ class LoginPage extends StatelessWidget {
       body: Center(
         child: ElevatedButton(onPressed: () {
           Login login = Login(
-            authentication: DummyAuthentication(),
-            userRepository: DummyUserRepository());
+            authentication: FirebaseAuthentication(),
+            userRepository: FirebaseUserRepository());
 
-            login(LoginParams(email: 'email', password: 'password'))
+            login(LoginParams(email: 'adisazara@gmail.com', password: '12345678'))
             .then((result) {
               if (result.isSuccess) {
                 Navigator.of(context).push(MaterialPageRoute(builder: (context) => MainPage(user: result.resultValue!),
                 ));
+              } else {
+                ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(result.errorMessage!)));
               }
             });
         } , child: const Text('Login')),
