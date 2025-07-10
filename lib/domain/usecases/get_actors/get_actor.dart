@@ -12,7 +12,7 @@ class GetActors implements Usecase<Result<List<Actor>>, GetActorsParam> {
 
   @override
   Future<Result<List<Actor>>> call(GetActorsParam params) async {
-    var actorListResult = await _movieRepository.getActors(id: params.movieId);
+    var actorListResult = await _movieRepository.getActors(id: params.movieId.toString());
 
     return switch (actorListResult) {
       Success(value: final actorList) => Result.success(actorList),

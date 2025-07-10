@@ -1,5 +1,5 @@
 class GetActorsParam {
-  final String movieId;
+  final int movieId;
 
   GetActorsParam({required this.movieId});
 }
