@@ -13,6 +13,7 @@ import 'package:flutter_flix_id/domain/usecases/upload_profile_picuture/upload_p
 import 'package:flutter_flix_id/domain/usecases/upload_profile_picuture/upload_profile_picuture_param.dart';
 import 'package:flutter_flix_id/presentation/providers/movie/now_playing_provider.dart';
 import 'package:flutter_flix_id/presentation/providers/movie/upcoming_provider.dart';
+import 'package:flutter_flix_id/presentation/providers/transaction_data/transaction_data_provider.dart';
 import 'package:flutter_flix_id/presentation/providers/usecases/get_logged_in_user_provider.dart';
 import 'package:flutter_flix_id/presentation/providers/usecases/login_provider.dart';
 import 'package:flutter_flix_id/presentation/providers/usecases/logout_provider.dart';
@@ -104,7 +105,7 @@ class UserData extends _$UserData {
           : state = const AsyncData(null);
         case Failed(message: final message)
           : state = AsyncError(FlutterError(message), StackTrace.current);
-          state = const AsyncData(null);
+          state = AsyncData(state.valueOrNull);
       }
     }
 
@@ -118,6 +119,7 @@ class UserData extends _$UserData {
 
       if (result.isSuccess) {
         refreshUserData();
+        ref.read(transactionDataProvider.notifier).refreshTransactionData();
       }
     }
   }
