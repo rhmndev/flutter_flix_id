@@ -61,7 +61,7 @@ class UserData extends _$UserData {
       required String email,
       required String password,
       required String name,
-      required String imageUrl,
+      String? imageUrl,
     }) async {
       state = const AsyncLoading();
 

@@ -2,11 +2,11 @@ class RegisterParam {
   final String name;
   final String email;
   final String password;
-  final String photoUrl;
+  final String? photoUrl;
 
   RegisterParam(
     {required this.name, 
     required this.email, 
     required this.password, 
-    required this.photoUrl,});
+    this.photoUrl,});
 }

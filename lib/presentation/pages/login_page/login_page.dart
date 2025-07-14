@@ -58,12 +58,17 @@ class LoginPage extends ConsumerWidget {
                           width: double.infinity,
                           child: ElevatedButton(
                             onPressed: () {
-                              ref
+                              final email = emailController.text.trim();
+                              final password = passwordController.text.trim();
+
+                              if (email.isEmpty || password.isEmpty) {
+                                context.showSnackBar(
+                                  'Email dan password tidak boleh kosong',
+                                );
+                                return;
+                              }ref
                                   .read(userDataProvider.notifier)
-                                  .login(
-                                    email: emailController.text,
-                                    password: passwordController.text,
-                                  );
+                                  .login(email: email, password: password);
                             },
                             child: const Text(
                               'Login',
@@ -80,7 +85,9 @@ class LoginPage extends ConsumerWidget {
                   children: [
                     Text("Don't have an account?"),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        ref.read(routerProvider).goNamed('register');
+                      },
                       child: Text(
                         'Register here',
                         style: TextStyle(fontWeight: FontWeight.bold),
