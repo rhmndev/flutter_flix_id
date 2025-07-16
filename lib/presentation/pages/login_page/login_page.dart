@@ -28,7 +28,7 @@ class LoginPage extends ConsumerWidget {
       body: ListView(
         children: [
           verticalSpaces(100),
-          Center(child: Image.asset('assets/flix_logo.png', width: 150)),
+          Center(child: Image.asset('assets/imov-logo.png', width: 150)),
           verticalSpaces(100),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 24),

@@ -45,7 +45,7 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
           Column(
             children: [
               verticalSpaces(50),
-              Center(child: Image.asset('assets/flix_logo.png', width: 150)),
+              Center(child: Image.asset('assets/imov-logo.png', width: 150)),
               verticalSpaces(50),
               const CircleAvatar(
                 radius: 50,
@@ -144,7 +144,7 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text('Álready have an accoun? '),
+                  const Text('Álready have an account? '),
                   TextButton(
                     onPressed: () {
                       ref.read(routerProvider).goNamed('login');
