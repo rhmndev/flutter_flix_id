@@ -4,7 +4,6 @@ import 'package:flutter_flix_id/domain/entities/result.dart';
 class DummyAuthentication implements Authentication {
   @override
   String? getLoggedInUserId() {
-    // TODO: implement getLoggedInUserId
     throw UnimplementedError();
   }
 
@@ -17,13 +16,11 @@ class DummyAuthentication implements Authentication {
 
   @override
   Future<Result<void>> logout() {
-    // TODO: implement logout
     throw UnimplementedError();
   }
 
   @override
   Future<Result<String>> register({required String email, required String password}) {
-    // TODO: implement register
     throw UnimplementedError();
   }
 }

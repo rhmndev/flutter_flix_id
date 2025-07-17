@@ -11,7 +11,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 class MoviePage extends ConsumerWidget {
   final List<String> promotionImageFileNames = const [
     'popcorn.jpg',
-    'buy1get1',
+    'buy1get1.jpg',
   ];
 
   const MoviePage({super.key});
@@ -21,6 +21,7 @@ class MoviePage extends ConsumerWidget {
     return ListView(
       children: [
         Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             userInfo(ref),
             verticalSpaces(40),
@@ -28,14 +29,20 @@ class MoviePage extends ConsumerWidget {
             verticalSpaces(24),
             ...movieList(
               title: 'Now Playing',
-              movie: ref.watch(nowPlayingProvider),
+              movies: ref.watch(nowPlayingProvider),
               onTap:
                   (movie) => {
                     // Pindah ke halaman detail page movie
                   },
             ),
+            verticalSpaces(30),
             ...promotionList(promotionImageFileNames),
-            ...movieList(title: 'Upcoming', movie: ref.watch(upComingProvider)),
+            verticalSpaces(30),
+            ...movieList(
+              title: 'Upcoming',
+              movies: ref.watch(upComingProvider),
+            ),
+            verticalSpaces(100),
           ],
         ),
       ],

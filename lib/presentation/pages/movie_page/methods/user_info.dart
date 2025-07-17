@@ -51,13 +51,12 @@ Widget userInfo(WidgetRef ref) => Padding(
                   child: Image.asset('assets/wallet.png'),
                 ),
                 horizontalSpaces(10),
-                Text(
-                  ref
+                Text(ref
                       .watch(userDataProvider)
                       .when(
                         data:
                             (user) =>
-                                (user?.balance ?? 0).toIDRCurrencyFormat(),
+                                (user?.balance ?? 0).toIDRCurrencyFormat() ,
                         error: (error, stackTrace) => 'IDR 0',
                         loading: () => 'Loading....',
                       ),
