@@ -6,6 +6,7 @@ import 'package:flutter_flix_id/presentation/pages/movie_page/methods/search_bar
 import 'package:flutter_flix_id/presentation/pages/movie_page/methods/user_info.dart';
 import 'package:flutter_flix_id/presentation/providers/movie/now_playing_provider.dart';
 import 'package:flutter_flix_id/presentation/providers/movie/upcoming_provider.dart';
+import 'package:flutter_flix_id/presentation/providers/router/router_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class MoviePage extends ConsumerWidget {
@@ -32,7 +33,7 @@ class MoviePage extends ConsumerWidget {
               movies: ref.watch(nowPlayingProvider),
               onTap:
                   (movie) => {
-                    // Pindah ke halaman detail page movie
+                    ref.read(routerProvider).pushNamed('detail', extra: movie)
                   },
             ),
             verticalSpaces(30),

@@ -1,3 +1,5 @@
+import 'package:flutter_flix_id/domain/entities/movie.dart';
+import 'package:flutter_flix_id/presentation/pages/detail_page/detail_page.dart';
 import 'package:flutter_flix_id/presentation/pages/login_page/login_page.dart';
 import 'package:flutter_flix_id/presentation/pages/main_page/main_page.dart';
 import 'package:flutter_flix_id/presentation/pages/register_page/register_page.dart';
@@ -23,6 +25,11 @@ Raw<GoRouter> router(RouterRef ref) => GoRouter(
       path: '/register',
       name: 'register',
       builder: (context, state) => RegisterPage(),
+    ),
+    GoRoute(
+      path: '/detail',
+      name: 'detail',
+      builder: (context, state) => DetailPage(movie: state.extra as Movie),
     ),
   ],
   initialLocation: '/login',
