@@ -3,6 +3,7 @@ import 'package:flutter_flix_id/domain/entities/movie.dart';
 import 'package:flutter_flix_id/presentation/misc/constants.dart';
 import 'package:flutter_flix_id/presentation/misc/methods.dart';
 import 'package:flutter_flix_id/presentation/pages/detail_page/methods/background.dart';
+import 'package:flutter_flix_id/presentation/pages/detail_page/methods/movie_short_info.dart';
 import 'package:flutter_flix_id/presentation/providers/movie/movie_detail_provider.dart';
 import 'package:flutter_flix_id/presentation/providers/router/router_provider.dart';
 import 'package:flutter_flix_id/presentation/widgets/back_navigation_bar.dart';
@@ -33,25 +34,21 @@ class DetailPage extends ConsumerWidget {
                       onTap: () => ref.read(routerProvider).pop(),
                     ),
                     verticalSpaces(24),
-                    NetworkImageCard(
-                      width: MediaQuery.of(context).size.width,
-                      height: (MediaQuery.of(context).size.width),
+                      NetworkImageCard(
+                      width: MediaQuery.of(context).size.width - 48,
+                      height: (MediaQuery.of(context).size.width - 48) * 0.6,
                       borderRadius: 15,
-                      imageUrl: () {
-                        final detail = asyncMovieDetail.valueOrNull;
-                        final path = detail?.backdropPath ?? movie.posterPath;
-                        final fullUrl =
-                            path != null
-                                ? 'https://image.tmdb.org/t/p/w500$path'
-                                : null;
-
-                                return fullUrl;
-                      }(),
+                      imageUrl: asyncMovieDetail.valueOrNull != null
+                          ? 'https://image.tmdb.org/t/p/w500${asyncMovieDetail.value!.backdropPath ?? movie.posterPath}'
+                          : null,
                       fit: BoxFit.cover,
                     ),
 
                     verticalSpaces(24),
-                    // ...movieShortInfo(),
+                    ...movieShortInfo(
+                      asyncMovieDetail: asyncMovieDetail,
+                      context: context,
+                    ),
                     verticalSpaces(20),
                     // movieOverview(),
                     verticalSpaces(40),
