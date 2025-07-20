@@ -21,9 +21,9 @@ List<Widget> movieShortInfo({
           builder: (_) {
             return asyncMovieDetail.when(
               data: (movieDetail) {
-                // print('=== DEBUG: MovieDetail in Widget ===');
-                // print(movieDetail);
-                // print('Runtime in widget: ${movieDetail?.runtime}');
+                print('=== DEBUG: MovieDetail in Widget ===');
+                print(movieDetail);
+                print('Runtime in widget: ${movieDetail?.runtime}');
                 return Text(
                   movieDetail != null ? '${movieDetail.runtime} minutes' : '-',
                   style: const TextStyle(fontSize: 12),

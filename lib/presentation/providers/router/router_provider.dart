@@ -1,8 +1,10 @@
 import 'package:flutter_flix_id/domain/entities/movie.dart';
+import 'package:flutter_flix_id/domain/entities/movie_detail.dart';
 import 'package:flutter_flix_id/presentation/pages/detail_page/detail_page.dart';
 import 'package:flutter_flix_id/presentation/pages/login_page/login_page.dart';
 import 'package:flutter_flix_id/presentation/pages/main_page/main_page.dart';
 import 'package:flutter_flix_id/presentation/pages/register_page/register_page.dart';
+import 'package:flutter_flix_id/presentation/pages/time_booking_page/time_booking_Page.dart';
 import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -30,6 +32,11 @@ Raw<GoRouter> router(RouterRef ref) => GoRouter(
       path: '/detail',
       name: 'detail',
       builder: (context, state) => DetailPage(movie: state.extra as Movie),
+    ),
+    GoRoute(
+      path: '/time-booking',
+      name: 'time-booking',
+      builder: (context, state) => TimeBookingPage(state.extra as MovieDetail),
     ),
   ],
   initialLocation: '/login',

@@ -40,9 +40,9 @@ class MainApp extends ConsumerWidget {
         ),
         useMaterial3: true,
         textTheme: TextTheme(
-          bodyMedium: GoogleFonts.poppins(color: ghostWhithe),
-          bodyLarge: GoogleFonts.poppins(color: ghostWhithe),
-          labelLarge: GoogleFonts.poppins(color: ghostWhithe),
+          bodyMedium: GoogleFonts.poppins(color: ghostWhite),
+          bodyLarge: GoogleFonts.poppins(color: ghostWhite),
+          labelLarge: GoogleFonts.poppins(color: ghostWhite),
         ),
       ),
       debugShowCheckedModeBanner: false,

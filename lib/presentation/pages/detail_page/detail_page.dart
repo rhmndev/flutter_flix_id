@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_flix_id/domain/entities/movie.dart';
+import 'package:flutter_flix_id/domain/entities/movie_detail.dart';
 import 'package:flutter_flix_id/presentation/misc/constants.dart';
 import 'package:flutter_flix_id/presentation/misc/methods.dart';
 import 'package:flutter_flix_id/presentation/pages/detail_page/methods/background.dart';
+import 'package:flutter_flix_id/presentation/pages/detail_page/methods/cast_and_crew.dart';
 import 'package:flutter_flix_id/presentation/pages/detail_page/methods/movie_overview.dart';
 import 'package:flutter_flix_id/presentation/pages/detail_page/methods/movie_short_info.dart';
 import 'package:flutter_flix_id/presentation/providers/movie/movie_detail_provider.dart';
@@ -33,15 +35,17 @@ class DetailPage extends ConsumerWidget {
                     BackNavigationBar(
                       title: movie.title,
                       onTap: () => ref.read(routerProvider).pop(),
+                      
                     ),
                     verticalSpaces(24),
-                      NetworkImageCard(
+                    NetworkImageCard(
                       width: MediaQuery.of(context).size.width - 48,
                       height: (MediaQuery.of(context).size.width - 48) * 0.6,
                       borderRadius: 15,
-                      imageUrl: asyncMovieDetail.valueOrNull != null
-                          ? 'https://image.tmdb.org/t/p/w500${asyncMovieDetail.value!.backdropPath ?? movie.posterPath}'
-                          : null,
+                      imageUrl:
+                          asyncMovieDetail.valueOrNull != null
+                              ? 'https://image.tmdb.org/t/p/w500${asyncMovieDetail.value!.backdropPath ?? movie.posterPath}'
+                              : null,
                       fit: BoxFit.cover,
                     ),
 
@@ -51,19 +55,26 @@ class DetailPage extends ConsumerWidget {
                       context: context,
                     ),
                     verticalSpaces(20),
-                    ...movieOverview(asyncMovieDetail),
+                    MovieOverviewSection(asyncMovieDetail: asyncMovieDetail),
+                    // ...movieOverview(asyncMovieDetail),
                     verticalSpaces(40),
                   ],
                 ),
               ),
-              // ...castAndCrew(),
+              ...castAndCrew(movie: movie, ref: ref),
               Padding(
                 padding: const EdgeInsets.symmetric(
                   vertical: 40,
                   horizontal: 24,
                 ),
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    MovieDetail? movieDetail = asyncMovieDetail.valueOrNull;
+
+                    if (movieDetail != null) {
+                      ref.read(routerProvider).pushNamed('time-booking', extra: movieDetail);
+                    }
+                  },
                   style: ElevatedButton.styleFrom(
                     foregroundColor: backgroundColor,
                     backgroundColor: saffron,
