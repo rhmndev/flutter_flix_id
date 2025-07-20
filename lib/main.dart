@@ -14,12 +14,12 @@ void main() async {
     await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
     );
-    print('Firebase initialized');
+    // print('Firebase initialized');
     // await FirebaseAppCheck.instance.activate(
     //   androidProvider: AndroidProvider.debug,
     // );
   } catch (e) {
-    print('Firebase failed: $e');
+    // print('Firebase failed: $e');
   }
 
   runApp(ProviderScope(child: const MainApp()));

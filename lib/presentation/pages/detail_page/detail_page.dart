@@ -3,6 +3,7 @@ import 'package:flutter_flix_id/domain/entities/movie.dart';
 import 'package:flutter_flix_id/presentation/misc/constants.dart';
 import 'package:flutter_flix_id/presentation/misc/methods.dart';
 import 'package:flutter_flix_id/presentation/pages/detail_page/methods/background.dart';
+import 'package:flutter_flix_id/presentation/pages/detail_page/methods/movie_overview.dart';
 import 'package:flutter_flix_id/presentation/pages/detail_page/methods/movie_short_info.dart';
 import 'package:flutter_flix_id/presentation/providers/movie/movie_detail_provider.dart';
 import 'package:flutter_flix_id/presentation/providers/router/router_provider.dart';
@@ -50,7 +51,7 @@ class DetailPage extends ConsumerWidget {
                       context: context,
                     ),
                     verticalSpaces(20),
-                    // movieOverview(),
+                    ...movieOverview(asyncMovieDetail),
                     verticalSpaces(40),
                   ],
                 ),

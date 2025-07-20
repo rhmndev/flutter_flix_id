@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_flix_id/domain/entities/movie.dart';
+import 'package:flutter_flix_id/presentation/misc/constants.dart';
 
 List<Widget> background(Movie movie) => [
   Image.network(
@@ -9,17 +10,10 @@ List<Widget> background(Movie movie) => [
     height: double.infinity,
   ),
   Container(
-    decoration: BoxDecoration(
-      gradient: LinearGradient(
-        begin: Alignment(0, 0.5),
-        end: Alignment.topCenter,
-        colors: [
-          Colors.black,
-          Colors.transparent,
-          Colors.black,
-          Colors.transparent
-        ],
-      ),
-    ),
-  ),
+        decoration: BoxDecoration(
+            gradient: LinearGradient(colors: [
+          backgroundColor.withOpacity(1),
+          backgroundColor.withOpacity(0.7)
+        ], begin: const Alignment(0, 0.3), end: Alignment.topCenter)),
+      )
 ];
