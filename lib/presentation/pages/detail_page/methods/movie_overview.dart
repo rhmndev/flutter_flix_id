@@ -63,7 +63,7 @@ class _MovieOverviewSectionState extends State<MovieOverviewSection> {
           error: (error, stackTrace) => const Text(
             'Failed to load movie overview. Please try again later.',
           ),
-          loading: () => const CircularProgressIndicator(),
+          loading: () => Center(child: const CircularProgressIndicator()),
         ),
       ],
     );
