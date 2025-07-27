@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_flix_id/presentation/extensions/build_context_extension.dart';
-import 'package:flutter_flix_id/presentation/misc/methods.dart';
 import 'package:flutter_flix_id/presentation/pages/movie_page/movie_page.dart';
 import 'package:flutter_flix_id/presentation/pages/profile_page/profile_page.dart';
 import 'package:flutter_flix_id/presentation/providers/router/router_provider.dart';

@@ -16,11 +16,11 @@ abstract class MovieDetail with _$MovieDetail {
   }) = _MovieDetail;
 
   factory MovieDetail.fromJSON(Map<String, dynamic> json) {
-    // Debug logs
-    print('=== DEBUG: Incoming JSON MovieDetail ===');
-    print(json); // log semua json
-    print('Runtime from JSON: ${json['runtime']}');
-    print('backdropPath from JSON: ${json['backdrop_path']}');
+    // // Debug logs
+    // print('=== DEBUG: Incoming JSON MovieDetail ===');
+    // print(json); // log semua json
+    // print('Runtime from JSON: ${json['runtime']}');
+    // print('backdropPath from JSON: ${json['backdrop_path']}');
 
     return MovieDetail(
       id: json['id'].toString(),
