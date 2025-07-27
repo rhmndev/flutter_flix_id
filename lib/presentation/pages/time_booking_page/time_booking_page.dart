@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_flix_id/domain/entities/movie_detail.dart';
+import 'package:flutter_flix_id/domain/entities/transaction.dart';
 import 'package:flutter_flix_id/presentation/extensions/build_context_extension.dart';
 import 'package:flutter_flix_id/presentation/misc/constants.dart';
 import 'package:flutter_flix_id/presentation/misc/methods.dart';
 import 'package:flutter_flix_id/presentation/pages/time_booking_page/methods/options.dart';
 import 'package:flutter_flix_id/presentation/providers/router/router_provider.dart';
+import 'package:flutter_flix_id/presentation/providers/user_data/user_data_provider.dart';
 import 'package:flutter_flix_id/presentation/widgets/back_navigation_bar.dart';
 import 'package:flutter_flix_id/presentation/widgets/network_image_card.dart';
-import 'package:flutter_flix_id/presentation/widgets/selectable_card.dart';
+// import 'package:flutter_flix_id/presentation/widgets/selectable_card.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 
@@ -118,16 +120,29 @@ class _TimeBookingPageState extends ConsumerState<TimeBookingPage> {
                           selectedDate == null ||
                           selectedTheater == null) {
                         context.showSnackBar('Please, select all options');
-                        // } else {
-                        //   context.navigateTo(
-                        //     '/ticket',
-                        //     arguments: {
-                        //       'movieDetail': widget.movieDetail,
-                        //       'theater': selectedTheater,
-                        //       'date': selectedDate,
-                        //       'hour': selectedHour,
-                        //     },
-                        //   );
+                      } else {
+                        Transaction transaction = Transaction(
+                          uid: ref.read(userDataProvider).value!.uid,
+                          title: widget.movieDetail.title,
+                          adminFee: 3000,
+                          total: 0,
+                          watchingTime:
+                              DateTime(
+                                selectedDate!.year,
+                                selectedDate!.month,
+                                selectedDate!.day,
+                                selectedHour!,
+                              ).millisecondsSinceEpoch,
+                          transactionImage: widget.movieDetail.backdropPath,
+                          theaterName: selectedTheater!,
+                        );
+
+                        ref
+                            .read(routerProvider)
+                            .pushNamed(
+                              'seat-booking',
+                              extra: (widget.movieDetail, transaction),
+                            );
                       }
                     },
                     child: Text('Book Now'),
